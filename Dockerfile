@@ -1,4 +1,4 @@
-FROM ubuntu:24.04
+FROM --platform=linux/amd64 ubuntu:24.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Europe/Lisbon
@@ -60,7 +60,7 @@ RUN apt-get update && apt-get install -y \
     ffmpeg libavutil-dev libffmpegthumbnailer-dev \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN python3 -m venv /venv
+RUN python3 -m venv /venv --system-site-packages
 ENV PATH="/venv/bin:$PATH"
 ENV PYTHONPATH="/venv/lib/python3.12/site-packages"
 RUN pip install --upgrade pip setuptools wheel
@@ -135,6 +135,6 @@ WORKDIR /code
 RUN pip install --upgrade pip && \
     pip install jupyterlab
 
-EXPOSE 8888
+EXPOSE 8889 
 
 CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8889", "--no-browser", "--allow-root"]
