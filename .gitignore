@@ -205,3 +205,13 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+
+# Dados do projeto
+/data/
+
+# macOS
+.DS_Store
+
+# Jupyter / editor temp
+.virtual_documents/
