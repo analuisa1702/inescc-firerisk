@@ -180,3 +180,4 @@ def pseudo_roc_blocks(ref, perigo_rst, posval, otbl=None, block_size=1024):
         return otbl, realauc, auc
 
     return ftbl, realauc, auc
+
