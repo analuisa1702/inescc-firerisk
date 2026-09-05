@@ -6,7 +6,7 @@ def split_rst_radomly_byblocks(
     Extract some cells of one raster and save them into a new raster.
 
     The cells not selected for extraction may be exported to other raster.
-    This version reads the raster by blocks.
+    The raster is processed by blocks to limit memory usage.
     """
 
     import numpy as np

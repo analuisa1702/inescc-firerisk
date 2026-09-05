@@ -5,6 +5,11 @@ services:
     container_name: jupyter-gis
     volumes:
       - .:/code
+      - type: bind
+        source: "/Volumes/NO NAME/"
+        target: /code/pen
+        bind:
+          create_host_path: false
     ports:
       - "8889:8889"
     environment:

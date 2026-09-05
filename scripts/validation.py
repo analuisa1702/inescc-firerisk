@@ -48,7 +48,10 @@ def pseudo_roc_blocks(ref, perigo_rst, posval, otbl=None, block_size=1024):
         if ref_src.shape != prob_src.shape:
             raise ValueError("Reference and hazard rasters have different shapes")
 
-        if ref_src.transform != prob_src.transform:
+        if not ref_src.transform.almost_equals(
+            prob_src.transform,
+            precision=1e-8
+        ):
             raise ValueError("Reference and hazard rasters have different transforms")
 
         if ref_src.crs != prob_src.crs:
